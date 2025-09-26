@@ -1,0 +1,3 @@
+To use AST in OpenSim API (Designed and tested for v4.3) make sure to have properly set up the environment variables and configured the OpeSim API.
+Launch Main_AST_v1.m to perform the analysis: the code will ask you the three input files (Generic musculoskeletal model (*.osim), the static pose markers trajectories (*.trc) and the user scaling setup file (*.xml)). 
+In Oputput the tool provides the scaled generic musculoskeletal model (ModelScaledMarkAdj.osim)

@@ -1,0 +1,24 @@
+[Node Information]
+TYPE=TRIAL
+NAME=152_st1_00
+Reference=
+PARENT=Session 1
+HASCHILD=FALSE
+[TRIAL_INFO]
+DESCRIPTION=Walking
+NOTES=
+STAGES=Static
+TYPE=static
+GENDER=
+SIDE=
+DIAGNOSIS=
+INJURY=
+PATHOLOGY=
+ACTIVITY=
+CREATIONDATEANDTIME=2015,8,11,14,0,49
+SUBJECTS=R:\Studie_Wachstumslenkung\Studie_Wachstumslenkung\Patienten_ALT_Valgus\152_HaukeKM\152_1_Brian\152_HaukeKM.vsk
+Left Foot Flat Ticked=False
+Right Foot Flat Ticked=False
+RAWDATALOADSTARTFRAME=0
+RAWDATALOADENDFRAME=0
+RAWDATAEXCLUDEFILES=

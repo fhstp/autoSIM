@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="40000">
+	<MarkerSet name="markerset">
+		<objects>
+			<Marker name="RASI">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.00069171726450608165 0.0044460701942443843 0.14197673873780378</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LASI">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.00059921799999999999 0.0044460699999999999 -0.14197699999999999</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="SACR">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.16298513793945313 0.053348222455412042 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RHJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.0030971561049597876 0.0091799701020384011 -0.005673900127410883</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="RT1">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.024500899698924057 -0.17622199999999999 0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RT2">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.0295388 -0.272816 0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RT3">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.049433900000000003 -0.272816 0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RKNM">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0086244400000000006 -0.41080899999999998 -0.051989399999999998</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="RS1">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.024500899999999999 -0.17622199999999999 0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RS2">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.0295388 -0.272816 0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RS3">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.049433900000000003 -0.272816 0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RANK">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.022372099999999999 -0.40165000000000001 0.049257000000000002</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="RANM">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0071120899999999997 -0.39201000000000003 -0.039465399999999998</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="RHEE">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/calcn_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.019061399999999999 0.022438300000000001 -0.0081464799999999993</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RTOE">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/calcn_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.16166390640770179 0.022438266371278506 0.013431328159509603</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RKJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0086244400000000006 -0.41080899999999998 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="RAJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0012759200334548949 -0.38891982781013018 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="RKNE">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0086244397204599185 -0.4108089904785156 0.049251701354980471</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LTOE">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/calcn_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.16166392900888346 0.022438266023378117 -0.013431284625202633</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LAJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.00127592 -0.38891999999999999 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LHEE">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/calcn_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.019061399999999999 0.022438300000000001 0.0081464799999999993</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LANK">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.022372116001546444 -0.40165000000000001 -0.049257000788334601</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LANM">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0071120924709947532 -0.39200972958352814 0.039465380649486702</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LS2">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.0295388 -0.272816 -0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LS3">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.049433900000000003 -0.272816 -0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LS1">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/tibia_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.024500899999999999 -0.17622199999999999 -0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LKNM">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0086244400000000006 -0.41080899999999998 0.051989399999999998</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LKJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0086244400000000006 -0.41080899999999998 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LKNE">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0086244400000000006 -0.41080899999999998 -0.049251700000000002</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="LT1">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.024500899999999999 -0.17622199999999999 -0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LT2">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.0295388 -0.272816 -0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LT3">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.049433900000000003 -0.272816 -0.079252500000000003</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LHJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.0030971600000000016 0.0091799699999999956 -0.0056738999999999956</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="C7">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/torso</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.078438201904296873 0.42138115392155645 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="STRN">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/torso</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.043124395759294512 0.37509067979410021 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="LSHO">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/torso</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.0111273 0.4168 -0.14824899999999999</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="RSHO">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/torso</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.011127344828598134 0.41680038939040198 0.14824870432704584</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="T10">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/torso</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.097140771707293544 0.21534800720214844 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="CLAV">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/torso</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>0.090651399999999993 0.25592199999999998 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>false</fixed>
+			</Marker>
+			<Marker name="MIDASIS">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-4.6249499999999998e-05 0.0044460699999999999 0</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+			<Marker name="MIDHJC">
+				<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
+				<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+				<!--The fixed location of the station expressed in its parent frame.-->
+				<location>-0.059373200000000001 -0.069309999999999997 -0.0056739</location>
+				<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
+				<fixed>true</fixed>
+			</Marker>
+		</objects>
+		<groups />
+	</MarkerSet>
+</OpenSimDocument>

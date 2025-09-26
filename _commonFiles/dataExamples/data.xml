@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struct>
+    <normData>false</normData>
+    <ID>xxxxxx</ID>
+    <age>11</age>
+    <sex>female</sex>
+    <bodyweight_kg>60.2</bodyweight_kg>
+    <bodyheight_mm>1690</bodyheight_mm>
+    <bmi>23.03</bmi>
+    <MRICTdate>NaN</MRICTdate>
+    <MRI_Method_Femur>Hernandez</MRI_Method_Femur>
+    <MRI_Method_Tibia>NaN</MRI_Method_Tibia>
+    <AVR_degree>26</AVR_degree>
+    <TTR_degree>35</TTR_degree>
+    <NSAR_degree>NaN</NSAR_degree>
+    <AVL_degree>43</AVL_degree>
+    <TTL_degree>39</TTL_degree>
+    <NSAL_degree>NaN</NSAL_degree>
+    <EXAMINATIONdate>2022-08-09</EXAMINATIONdate>
+    <XRAYdate>NaN</XRAYdate>
+    <XRAY_FT_angle_degree_right>NaN</XRAY_FT_angle_degree_right>
+    <XRAY_FT_angle_degree_left>NaN</XRAY_FT_angle_degree_left>
+    <icd10_left>M24.35;</icd10_left>
+    <icd10_right>NaN</icd10_right>
+    <icd10_both>Q65.8;M16.3;</icd10_both>
+    <icd10_questionable>NaN</icd10_questionable>
+    <GPS_L_degree>3.7502</GPS_L_degree>
+    <GPS_R_degree>3.8416</GPS_R_degree>
+    <GDI_L>118.071</GDI_L>
+    <GDI_R>115.585</GDI_R>
+    <Condition>barefoot-unassisted</Condition>
+    <HIP_L>Harrington</HIP_L>
+    <HIP_R>Harrington</HIP_R>
+</struct>

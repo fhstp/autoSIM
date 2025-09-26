@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AST: Tool for Automatic Scaling of generic MSK OpenSim models                
+% Authors: Andrea Di Pietro, University of Pisa, (Italy)                       
+%          Alex Bersani, Alma Mater Studiorum - University of Bologna, (Italy) 
+%          Uploaded on 23/12/2023
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Input:
+%       - Unscaled OpenSim model
+%       - TRC static file
+%       - Starting Scaling setup file
+%
+%   Output:
+%       - Scaled MSK model with Marker Registering and all unlocked coordinates
+%       - Scaled MSK model with Marker Registering
+%       - Solving Setup Files
+% 
+%
+% Created for OpenSim 4.3
+%
+% "AST: an OpenSim-based tool for the automatic scaling of generic musculoskeletal models" © 2024
+% by Andrea Di Pietro and Alex Bersani is licensed under CC BY-NC 4.0 
+% Please cite: "AST: an OpenSim-based tool for the automatic scaling of generic musculoskeletal models; 
+%                   Andrea Di Pietro, Alex Bersani, Cristina Curreli,Francesca Di Puccio; Computers in Biology and Medicine; 2024
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
