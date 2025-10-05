@@ -276,8 +276,11 @@ for j = 1 : length(rootDirs)
     % selects <true>, the workflow will check regularily for free RAM and in case
     % it detects RAM gets low, it will save the current workspace at the end of
     % a WD loop, restart matlab, and proceed with its simulations. This should
-    % clear any RAM blocked by the memory leak of Matlab.
+    % clear any RAM blocked by the memory leak of Matlab. Further you can
+    % also set <iterationCntRestart> to force a restart if the iteration loop reaches
+    % the set threshold. 
     allowAutoRestart = false; % default = false; true or false
+    iterationCntRestart = 500; % default = 500; to turn this off, set to e.g. 999999 
     thresholdFreeRAM = 10; % default = 10; in percentaged of available RAM;
 
     %% ===== PostProcessing Settings ==========================================
@@ -359,8 +362,8 @@ for j = 1 : length(rootDirs)
 
     %% ========================================================================
     % HARDCODED Settings ======================================================
-    % =========================================================================
-
+    % =========================================================================    
+    
     % Implemented marker sets and some settings based on the markersets
     switch labFlag
         case {'OSSnoArms', 'FHSTPnoArms'}
@@ -500,7 +503,7 @@ for j = 1 : length(rootDirs)
         scaleMuscleStrength, manualMusScaleF, markerSet, bodyheightGenericModel, addPelvisHelperMarker, pelvisMarker4nonUniformScaling, tf_angle_fromSource, torsiontool, useDirectKinematics4TibRotEstimationAsFallback, ...
         tib_torsion_LeftMarkers, tib_torsion_RightMarkers, forceTrcMotCreation, dataAugmentation, ForceModelCreation, performPostProcessing, trialType, timeNormFlag, renameC3DFiles2enfDescription, ...
         vtp2keep, deleteVtps, jamSettings, checkAndAdaptMomArms, useASTool, repoPaths, allowAutoRestart, thresholdFreeRAM, useC3Devents, scalePelvisManually, pelvisWidthGenericModel, ...
-        useStatic4FrontAlignmentAsFallback, tibTorsionAdaptionMethod, useCPUThreshold, varNameKneeAngle_c3d)
+        useStatic4FrontAlignmentAsFallback, tibTorsionAdaptionMethod, useCPUThreshold, varNameKneeAngle_c3d, iterationCntRestart)
 
     %% Final  message
     disp('*******************************************  COMAK over and out  *******************************************');

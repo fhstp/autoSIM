@@ -75,10 +75,13 @@ switch Model2Use
             'perlong_', 'vasmed_', 'tibant_'};
 
         % Select contact forces (3)
+        % NOTE: this might need adjustment if some seetings were changed in the set up files.
         tmp2Replace = '<##>'; % this is later needed to replace with the side tag
-        tf_contactF = {['femur_weld_',tmp2Replace,'_on_femur_',tmp2Replace,'_in_femur_',tmp2Replace,'_fx'],['femur_weld_',tmp2Replace,'_on_femur_',tmp2Replace,'_in_femur_',tmp2Replace,'_fy'],['femur_weld_',tmp2Replace,'_on_femur_',tmp2Replace,'_in_femur_',tmp2Replace,'_fz']};
+        %tf_contactF = {['femur_weld_',tmp2Replace,'_on_femur_',tmp2Replace,'_in_femur_',tmp2Replace,'_fx'],['femur_weld_',tmp2Replace,'_on_femur_',tmp2Replace,'_in_femur_',tmp2Replace,'_fy'],['femur_weld_',tmp2Replace,'_on_femur_',tmp2Replace,'_in_femur_',tmp2Replace,'_fz']};
         %tf_contactF = {['knee_',tmp2Replace,'_on_femoral_cond_',tmp2Replace,'_in_femoral_cond_',tmp2Replace,'_fx'],['knee_',tmp2Replace,'_on_femoral_cond_',tmp2Replace,'_in_femoral_cond_',tmp2Replace,'_fy'],['knee_',tmp2Replace,'_on_femoral_cond_',tmp2Replace,'_in_femoral_cond_',tmp2Replace,'_fz']};
-
+        %tf_contactF = {['femur_weld_',tmp2Replace,'_on_femoral_cond_',tmp2Replace,'_in_femoral_cond_',tmp2Replace,'_fx'],['femur_weld_',tmp2Replace,'_on_femoral_cond_',tmp2Replace,'_in_femoral_cond_',tmp2Replace,'_fy'],['femur_weld_',tmp2Replace,'_on_femoral_cond_',tmp2Replace,'_in_femoral_cond_',tmp2Replace,'_fz']};
+        tf_contactF = {['Lerner_knee_', tmp2Replace, '_on_sagittal_articulation_frame_', tmp2Replace, '_in_sagittal_articulation_frame_', tmp2Replace, '_fx'], ['Lerner_knee_', tmp2Replace, '_on_sagittal_articulation_frame_', tmp2Replace, '_in_sagittal_articulation_frame_', tmp2Replace, '_fy'], ['Lerner_knee_', tmp2Replace, '_on_sagittal_articulation_frame_', tmp2Replace, '_in_sagittal_articulation_frame_', tmp2Replace, '_fz']};
+    
     case 'rajagopal'
 
         % Kinematics vars 2 plot
@@ -424,6 +427,13 @@ for i = 1 : length(filesInvKinematics_dealed)
     for k = 1 : length(contactForce_short)
         for j = 1 : length(pat)
             contactForce_short{k,1} = strrep(contactForce_short{k}, pat{j}, new{j});
+        end
+    end
+
+    % We also need to shorten the search strings.
+    for k = 1 : length(tf_contactF)
+        for j = 1 : length(pat)
+            tf_contactF{k} = strrep(tf_contactF{k}, pat{j}, new{j});
         end
     end
 

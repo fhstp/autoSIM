@@ -49,9 +49,12 @@ switch pipelineName
             {['ankle_angle_',side];'Ankle Felx.';'Angle [°]'};...
             {['patella_',side,'_constrained_knee_angle'];'Patella Constr. Knee Angle';'Angle [°]'}};
 
-        % Select contact forces (3)
-        tf_contactF = {['femur_weld_',side,'_on_femur_',side,'_in_femur_',side,'_fx'],['femur_weld_',side,'_on_femur_',side,'_in_femur_',side,'_fy'],['femur_weld_',side,'_on_femur_',side,'_in_femur_',side,'_fz']};
-
+        % Select contact forces (3); 
+        % NOTE: this might need adjustment if some seetings were changed in the set up files.
+        % tf_contactF = {['femur_weld_',side,'_on_femur_',side,'_in_femur_',side,'_fx'],['femur_weld_',side,'_on_femur_',side,'_in_femur_',side,'_fy'],['femur_weld_',side,'_on_femur_',side,'_in_femur_',side,'_fz']};
+        %tf_contactF = {['femur_weld_',side,'_on_femoral_cond_',side,'_in_femoral_cond_',side,'_fx'],['femur_weld_',side,'_on_femoral_cond_',side,'_in_femoral_cond_',side,'_fy'],['femur_weld_',side,'_on_femoral_cond_',side,'_in_femoral_cond_',side,'_fz']};
+        tf_contactF = {['Lerner_knee_', side, '_on_sagittal_articulation_frame_', side, '_in_sagittal_articulation_frame_', side, '_fx'], ['Lerner_knee_', side, '_on_sagittal_articulation_frame_', side, '_in_sagittal_articulation_frame_', side, '_fy'], ['Lerner_knee_', side, '_on_sagittal_articulation_frame_', side, '_in_sagittal_articulation_frame_', side, '_fz']};
+    
     case 'rajagopal'
         % Select muscles to display
         msls = {['soleus_',side],['gasmed_',side],['recfem_',side], ...
@@ -235,6 +238,11 @@ KFCfn = {'Fy','F','Fx'};
 
 for i = 1:length(tf_contactF)
     ind = find(contains(forces_labels,tf_contactF{i}));
+
+    % Check if we found data. Just a safety check to make sure hardcoded settings are not off.  
+    if ~any(contains(forces_labels,tf_contactF{i}))
+        warning('>>>> Please double check hardcoded <tf_contactF> definitions in the case statement in generate_results_plots.m file. Might be wrong if errors occur for entire dataset! Also double check the analyzeSubjectFiles.m file!')
+    end
     
     forces_time = forces_data(:,1);
     tmp_data = abs(forces_data(:,ind)/BW); % normalize to BW
