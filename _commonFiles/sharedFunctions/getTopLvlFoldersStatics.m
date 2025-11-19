@@ -69,16 +69,25 @@ for i = 1:length(FolderNames)
                 folderNames_out{i} = FolderNames{i}; % only use folder name when static was found
 
             else
-                % Assuming that the trial number ist last and that the trial with
-                % the highest number is the relevant one.
-                static_Idx = [];
-                for j = 1:length(tmpOut)
-                    static_Idx(j) = str2double(regexp(tmpOut{j},'\d.','match'));
-                end
-                [~, idx] = max(static_Idx); %get the latest file
+                static_Idx = zeros(1, length(tmpOut));     % preallocate
 
-                staticNames_out{i} = char(strcat(tmpOut{idx},'.c3d')); % add file extension back
-                folderNames_out{i} = FolderNames{i}; % only use folder name when static was found
+                for j = 1:length(tmpOut)
+                    % Get trailing digits at the end of the string (if any)
+                    numStr = regexp(tmpOut{j}, '\d+$', 'match', 'once');  % '\d+$' = digits at end
+
+                    if isempty(numStr)
+                        static_Idx(j) = 0;                 % no number -> treat as 0
+                    else
+                        static_Idx(j) = str2double(numStr);
+                    end
+                end
+
+                % Get index of highest number
+                [~, idx] = max(static_Idx);
+
+                % Build output names
+                staticNames_out{i}  = [tmpOut{idx} '.c3d'];   % simpler than char/strcat
+                folderNames_out{i}  = FolderNames{i};
             end
 
         case 'byEnfDescription'

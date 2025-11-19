@@ -173,8 +173,10 @@ for j = 1 : length(rootDirs)
     %%----- Scale Pelvis Manually ---------------------------------------------
     % If yes, the pelvis width will be fetched from the *.mp file and the
     % variable "InterAsisDistance" and used to scale the pelivs manually.
+	% While you have this option, our results showed using the standard scaling 
+	% based on the HJC seems to be the more accurate approach.
     pelvisWidthGenericModel = 289;  % ASIS-ASIS in mm
-    scalePelvisManually = true;    % default = true; or false.
+    scalePelvisManually = false;    % default = false; or false.
 
     %%----- Use Automatic Scaling Tool AST? -----------------------------------
     %Do you want to use the The Automated Scaling Tool (AST) to automate the
@@ -203,7 +205,7 @@ for j = 1 : length(rootDirs)
     varNameKneeAngle_c3d.posFront = 2;                  % default = 2; You can specify the position (column) of the frontal plane data in your *.c3d files.
     varNameKneeAngle_c3d.posTrans = 3;                  % default = 3; You can specify the position (column) of the transverse plane data in your *.c3d files (later needed for TT).
     useStatic4FrontAlignmentAsFallback = true;          % default = false; true or false
-    tf_angle_fromSource = 'fromStatic';                      % default = 'false'; 'false', 'fromStatic', 'fromExtDataFile', 'manual'
+    tf_angle_fromSource = 'fromStatic';                 % default = 'false'; 'false', 'fromStatic', 'fromExtDataFile', 'manual'
     tf_angle_r = 0;                                     % default = 0
     tf_angle_l = 0;                                     % default = 0
 

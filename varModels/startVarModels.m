@@ -102,7 +102,7 @@ for j = 1 : length(rootDirs)
             % Make sure that all paths have a '\' at the end!
             %---
             workingDirectories = {'E:\LocDat\GitHub\autoSIM\_commonFiles\dataExamples\OSS\'}; % {'D:\...\', 'C:\...\', ...} or {'D:\....\'}
-            staticC3dFiles = {'Static.c3d'}; % {'Static01.c3d', 'Static.c3d', ...} or {'Static01.c3d'}
+            staticC3dFiles = {'Static.c3d'}; % {'Static01.c3d', 'Static.c3d', ...} or {'Static01.c3d'}            
 
         case 2
             %----- Option #2 ----------------------------------------------------------
@@ -159,9 +159,11 @@ for j = 1 : length(rootDirs)
 
         case 'rajagopal'
             bodyheightGenericModel = 1680;           % in mm; for the Rajagopal Model this is  1680mm
+            pelvisWidthGenericModel = NaN;           % ASIS-ASIS in mm
 
         case 'LaiUhlrich'
             bodyheightGenericModel = 1662;           % in mm; for the Rajagopal Model this is  1662mm
+            pelvisWidthGenericModel = NaN;           % ASIS-ASIS in mm
 
         case 'RajagopalLaiUhlrich2023'
             bodyheightGenericModel = 1664;           % in mm; for the Rajagopal-Lai_Uhlrich Model this is  1664mm
@@ -184,7 +186,9 @@ for j = 1 : length(rootDirs)
     %%----- Scale Pelvis Manually ---------------------------------------------
     % If yes, the pelvis width will be fetched from the *.mp file and the
     % variable "InterAsisDistance" and used to scale the pelivs manually.
-    scalePelvisManually = true; % default = true; or false.
+	% While you have this option, our results showed using the standard scaling 
+	% based on the HJC seems to be the more accurate approach. 
+    scalePelvisManually = false; % default = false; or false.
 
     %%----- Lock Suptalar Joint -----------------------------------------------
     % Lock Subtalar for scaling? This might be usefull if you only have one
@@ -208,8 +212,8 @@ for j = 1 : length(rootDirs)
     varNameKneeAngle_c3d.L = 'LKneeAngles';             % default = 'LKneeAngles'; this depends on how the variable is defined in your *.c3d files.
     varNameKneeAngle_c3d.posFront = 2;                  % default = 2; You can specify the position (column) of the frontal plane data in your *.c3d files.
     varNameKneeAngle_c3d.posTrans = 3;                  % default = 3; You can specify the position (column) of the transverse plane data in your *.c3d files (later needed for TT).
-    useStatic4FrontAlignmentAsFallback = true;          % default = false; true or false
-    tf_angle_fromSource = 'fromStatic';                      % default = 'false'; 'false', 'fromStatic', 'fromExtDataFile', 'manual'
+    useStatic4FrontAlignmentAsFallback = false;          % default = false; true or false
+    tf_angle_fromSource = 'false';                      % default = 'false'; 'false', 'fromStatic', 'fromExtDataFile', 'manual'
     tf_angle_r = 0;                                     % default = 0
     tf_angle_l = 0;                                     % default = 0
 
@@ -222,7 +226,7 @@ for j = 1 : length(rootDirs)
     % NOTE to 'fromStatic' - we currently use the CleveLand Model (from OSS - Speising). Here external TT is NEGATIVE. Currently this values is multiplied by -1 to have the correct sign for the TorsionTool (where ext. TT is POSITIVE).
     useDirectKinematics4TibRotEstimationAsFallback = false;   % default = false; true or false;
     tibTorsionAdaptionMethod = 'fromStatic';        % default = 'fromStatic'; 'fromExtDataFile' or 'fromStatic'
-    tibTorsionAdaption = true;                     % default = false; true or false
+    tibTorsionAdaption = false;                     % default = false; true or false
     neckShaftAdaption = false;                      % default = false; true or false
     femurAntetorsionAdaption = false;               % default = false; true or false
 
@@ -294,7 +298,7 @@ for j = 1 : length(rootDirs)
 
     %%----- Set Lab  ----------------------------------------------------------
     % Define from which lab the data come from
-    labFlag = 'OSSnoArms'; % 'OSS', 'OSSnoArms', 'FHSTP-BIZ', 'FHSTP', FHSTPnoArms, 'ISW', 'LKHG_Cleve', 'FF', 'FHSTP-pyCGM', 'FHCWnoArms', 'OSS-pyCGM'
+    labFlag = 'OSSnoArms'; % 'OSS', 'OSSnoArms', 'FHSTP-BIZ', 'FHSTP', FHSTPnoArms, 'ISW', 'LKHG_Cleve', 'FF', 'FHSTP-pyCGM', 'FHCWnoArms', 'OSS-pyCGM', 'FHSTP_pyCGM2_5', FHSTP_pyCGM2_5noArms
 
     %%----- Set max. N of cmd windows -----------------------------------------
     % Define number of allowed simultaneously running cmd windows.
@@ -393,7 +397,50 @@ for j = 1 : length(rootDirs)
             % Markers used to calculate the tibial torsion
             tib_torsion_LeftMarkers = {'LKNE', 'LKNM', 'LANK', 'LANM', 'LTOE'};
             tib_torsion_RightMarkers = {'RKNE', 'RKNM', 'RANK', 'RANM', 'RTOE'};
+        
+        case {'FHSTP_pyCGM2_5'}
+            % pyCGM2.5 markerset without head
+            markerSet = {
+                'T2','T10', 'CLAV', 'LSHO', 'RSHO', ...
+                'RASI','LASI','RPSI', 'LPSI', 'RHJC', 'LHJC', ...
+                'LTHAP','LTHAD','LTHI','LTIAP','LTIAD','LTIB', ...
+                'RTHAP','RTHAD','RTHI','RTIAP','RTIAD','RTIB', ...
+                'LKNE', 'LKNM', 'LKJC', ...
+                'RKNE', 'RKNM', 'RKJC', ...
+                'LTOE','LHEE', 'LANK', 'LMED', 'LAJC', ...
+                'RTOE','RHEE', 'RANK', 'RMED', 'RAJC', ...
+                'LVMH', 'LFMH', 'RVMH', 'RFMH', ...
+                'RUPA', 'RELB', 'RWRA', 'RWRB', ...
+                'LUPA', 'LELB', 'LWRA', 'LWRB'};
 
+            % The markers used for the appendHelperMarkers function for the nonuniform pelvis scaling.
+            % Note: they always have to have the following order: {'LASI', 'RASI', 'LHJC', 'RHJC', 'SACR'} or {'LASI', 'RASI', 'LHJC', 'RHJC', 'LPSI', 'RPSI'}!
+            pelvisMarker4nonUniformScaling = {'LASI', 'RASI', 'LHJC', 'RHJC', 'LPSI', 'RPSI'};
+
+            % Markers used to calculate the tibial torsion
+            tib_torsion_LeftMarkers = {'LKNE', 'LKNM', 'LANK', 'LMED', 'LTOE'};
+            tib_torsion_RightMarkers = {'RKNE', 'RKNM', 'RANK', 'RMED', 'RTOE'};
+        
+        case {'FHSTP_pyCGM2_5noArms'}
+            % pyCGM2.5 markerset without head
+            markerSet = {
+                'T2','T10', 'CLAV', 'LSHO', 'RSHO', ...
+                'RASI','LASI','RPSI', 'LPSI', 'RHJC', 'LHJC', ...
+                'LTHAP','LTHAD','LTHI','LTIAP','LTIAD','LTIB', ...
+                'RTHAP','RTHAD','RTHI','RTIAP','RTIAD','RTIB', ...
+                'LKNE', 'LKNM', 'LKJC', ...
+                'RKNE', 'RKNM', 'RKJC', ...
+                'LTOE','LHEE', 'LANK', 'LMED', 'LAJC', ...
+                'RTOE','RHEE', 'RANK', 'RMED', 'RAJC', ...
+                'LVMH', 'LFMH', 'RVMH', 'RFMH'};
+
+            % The markers used for the appendHelperMarkers function for the nonuniform pelvis scaling.
+            % Note: they always have to have the following order: {'LASI', 'RASI', 'LHJC', 'RHJC', 'SACR'} or {'LASI', 'RASI', 'LHJC', 'RHJC', 'LPSI', 'RPSI'}!
+            pelvisMarker4nonUniformScaling = {'LASI', 'RASI', 'LHJC', 'RHJC', 'LPSI', 'RPSI'};
+
+            % Markers used to calculate the tibial torsion
+            tib_torsion_LeftMarkers = {'LKNE', 'LKNM', 'LANK', 'LMED', 'LTOE'};
+            tib_torsion_RightMarkers = {'RKNE', 'RKNM', 'RANK', 'RMED', 'RTOE'};
         case 'ISW'
             markerSet = {   'C7','T10', 'CLAV', 'STRN', 'RBAK', ...
                 'RASI','LASI','RPSI', 'LPSI', ...

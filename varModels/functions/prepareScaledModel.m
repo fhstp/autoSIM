@@ -53,6 +53,9 @@ switch Model2Use
                 path2ScaleFile = char(fullfile(path2GenericModels,'FrankFurt\'));
                 usedModel  = 'Lernagopal_41_OUF';
                 scaleTemplate = 'FF_Scaling_Lernagopal.xml';
+            otherwise
+                warning('Unknown labFlag: %s in prepareScaledModel. Skript paused!', labFlag);
+                pause()        
         end
 
     case 'rajagopal'
@@ -79,6 +82,9 @@ switch Model2Use
                 usedModel  = 'Rajagopal2015';
                 scaleTemplate = 'OSS_Scaling_Rajagopal.xml';
 
+            otherwise
+                warning('Unknown labFlag: %s in prepareScaledModel. Skript paused!', labFlag);
+                pause()
         end
 
     case 'LaiUhlrich'
@@ -98,6 +104,21 @@ switch Model2Use
                 path2ScaleFile = char(fullfile(path2GenericModels,'FHSTP-pyCGM\'));
                 usedModel  = 'LaiUhlrich2022';
                 scaleTemplate = 'FHSTP_Scaling_LaiUhlrich.xml';
+            case {'FHSTP_pyCGM2_5'}
+                markerSetPath = 'FHSTP_pyCGM2_5\FHSTP_pyCGM2_5_MarkerSet_LaiUhlrich.xml';
+                path2ScaleFile = char(fullfile(path2GenericModels,'FHSTP_pyCGM2_5\'));
+                usedModel  = 'LaiUhlrich2022';
+                scaleTemplate = 'FHSTP_pyCGM2_5_Scaling_LaiUhlrich.xml';
+
+            case {'FHSTP_pyCGM2_5noArms'}
+                markerSetPath = 'FHSTP_pyCGM2_5_noArms\FHSTP_pyCGM2_5_noArms_MarkerSet_LaiUhlrich.xml';
+                path2ScaleFile = char(fullfile(path2GenericModels,'FHSTP_pyCGM2_5_noArms\'));
+                usedModel  = 'LaiUhlrich2022';
+                scaleTemplate = 'FHSTP_pyCGM2_5_noArms_Scaling_LaiUhlrich.xml';
+
+            otherwise
+                warning('Unknown labFlag: %s in prepareScaledModel. Skript paused!', labFlag);
+                pause()
         end
 
     case 'RajagopalLaiUhlrich2023'
@@ -108,6 +129,9 @@ switch Model2Use
                 path2ScaleFile = char(fullfile(path2GenericModels,'OSS_FHSTP\'));
                 usedModel  = 'RajagopalLaiUhlrich2023';
                 scaleTemplate = 'OSS_pyCGM_Scaling_RajaLaiUhlrich_2023.xml';
+            otherwise
+                warning('Unknown labFlag: %s in prepareScaledModel. Skript paused!', labFlag);
+                pause()
 
         end
 end
@@ -188,7 +212,7 @@ if scalePelvisManually && ~isnan(hipdWidth)
 
     % Calculate ratio
     scaleValue = hipdWidth / pelvisWidthGenericModel;
-    
+
     % Change value
     xml_file = fullfile(char(strcat(path.workingDirectory,'Scaling\')), scaleTemplate);
     changeXML(xml_file,'scales', char([' ' num2str(scaleValue) ' ' num2str(scaleValue) ' ' num2str(scaleValue) ' ']),1);
@@ -202,7 +226,7 @@ end
 dataFile = fullfile(rootWorkingDirectory, 'data.xml');
 if isfile(dataFile)
     persInfo = readstruct(dataFile);
-    
+
     % Check if the personalization data in persInfo can be used based on
     % the examination date. Otherwise skip. The difference should be below 30
     % days for TT.
@@ -311,7 +335,7 @@ end
 [path.genModel4Scaling, tf_angle_right, tf_angle_fromSource_r] = adjustFrontAlignmentModel(path.genModel4Scaling, tf_angle_r, tf_angle_fromSource, 'right', staticC3d, BodyHeight, bodymass, persInfo, useStatic4FrontAlignmentAsFallback, Model2Use, rootWorkingDirectory, varNameKneeAngle_c3d.R, varNameKneeAngle_c3d.posFront);
 [path.genModel4Scaling, tf_angle_left, tf_angle_fromSource_l] = adjustFrontAlignmentModel(path.genModel4Scaling, tf_angle_l, tf_angle_fromSource, 'left', staticC3d, BodyHeight, bodymass, persInfo, useStatic4FrontAlignmentAsFallback, Model2Use, rootWorkingDirectory, varNameKneeAngle_c3d.L, varNameKneeAngle_c3d.posFront);
 
-%% Collect the median frontal knee value from the static and the tib torsion only for documentation. 
+%% Collect the median frontal knee value from the static and the tib torsion only for documentation.
 % These values are used for eg the valgus/varus estimation and the tib.
 % torsion estimation. And this only works reliabliy for the "Cleveland
 % markerset".
@@ -340,7 +364,7 @@ try
     LMAL = mean(markers.(tib_torsion_Markers_Left{3}));
     TOE = mean(markers.(tib_torsion_Markers_Left{5}));
     tibTorsFromMarker_Left = estimateTibiaTorsion(LT, MT, MMAL, LMAL, TOE);
-    
+
     persInfoFromMarkers.kneeFrontFromDirectKinematics_Right = median(angles.RKneeAngles(:,2));
     persInfoFromMarkers.kneeFrontFromDirectKinematics_Left = median(angles.LKneeAngles(:,2));
     persInfoFromMarkers.tibTorsFromDirectKinematics_Right = median(angles.RKneeAngles(:,3));

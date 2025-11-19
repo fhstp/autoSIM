@@ -75,8 +75,18 @@ switch labFlag
     case {'FHSTP-pyCGM'}
         path2setupFiles = fullfile(path2setupFiles, [Model2Use, 'Models'],'\FHSTP-pyCGM\');
 
+    case {'FHSTP_pyCGM2_5'}
+        path2setupFiles = fullfile(path2setupFiles, [Model2Use, 'Models'],'\FHSTP_pyCGM2_5\');
+    
+    case {'FHSTP_pyCGM2_5noArms'}
+        path2setupFiles = fullfile(path2setupFiles, [Model2Use, 'Models'],'\FHSTP_pyCGM2_5_noArms\');
+
     case 'FF'
         path2setupFiles = fullfile(path2setupFiles, [Model2Use, 'Models'],'\FrankFurt\');
+
+    otherwise
+        warning('Unknown labFlag: %s in Model_workflow. Skript paused!', labFlag);
+        pause()
 end
 
 % Set some necessary paths
@@ -164,6 +174,7 @@ if tasks.RR
     changeXML(path.RRA_actuators,'point',[num2str(COM(1)), ' ',num2str(COM(2)), ' ', num2str(COM(3))],3);
 
     % Change xml nodes
+    if ~isfile(xmlFile); warning('Residual Reductions not implemented yet for this model. Check setup files! Skript paused!'); pause(); end
     xmlFile = path.OpenSimResidualReduction;
     changeXML(xmlFile,'model_file',path.scaledModel,1);
     changeXML(xmlFile,'replace_force_set','true',1);
@@ -205,6 +216,7 @@ if tasks.ID
     end
 
     % Change xml nodes
+    if ~isfile(xmlFile); warning('Inverse dynamics not implemented yet for this model. Check setup files! Skript paused!'); pause(); end
     changeXML(xmlFile,'results_directory',path.resultsOpenSimID,1);
     changeXML(xmlFile,'time_range',[num2str(trialInfo.startTime),' ', num2str(trialInfo.endTime)],1);
     changeXML(xmlFile,'model_file',path.scaledModel,1);
@@ -244,6 +256,7 @@ if tasks.SO
     fclose(fid);
 
     % Change xml nodes
+    if ~isfile(xmlFile); warning('Static Optimization not implemented yet for this model. Check setup files! Skript paused!'); pause(); end
     changeXML(xmlFile,'model_file',path.scaledModel,1);
     changeXML(xmlFile,'replace_force_set','false',1); % defaut = false
     changeXML(xmlFile,'force_set_files', path.forceSetFile,1); % default = path.forceSetFile
@@ -298,6 +311,7 @@ if tasks.A
     end
 
     % Change xml nodes
+    if ~isfile(xmlFile); warning('Analyze not implemented yet for this model. Check setup files! Skript paused!'); pause(); end
     changeXML(xmlFile,'model_file',path.scaledModel,1);
     changeXML(xmlFile,'replace_force_set','false',1); % default = false
     changeXML(xmlFile,'force_set_files', path.forceSetFile,1); % default = path.forceSetFile

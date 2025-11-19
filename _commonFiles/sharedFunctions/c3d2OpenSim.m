@@ -37,7 +37,7 @@ switch labFlag
         RotMat = rotz(pi); % 180° rot matrix
         R_FP1 = R_FP*RotMat(1:3,1:3); % turn
 
-    case {'FHSTP', 'FHSTPnoArms', 'FHSTP-pyCGM'} % has three plates
+    case {'FHSTP', 'FHSTPnoArms', 'FHSTP-pyCGM', 'FHSTP_pyCGM2_5', 'FHSTP_pyCGM2_5noArms'} % has three plates
         % Rotation matrix from c3d to OpenSim for Markers
         R1 = rotx(0.5*pi);  % rotate 90° around X
         R2 = roty(pi);      % rotate 180° around y
@@ -114,7 +114,7 @@ switch labFlag
         R_FP2 = R_FPs1234;  % turn check
         R_FP3 = R_FPs1234;  % turn check
         R_FP4 = R_FPs1234;  % turn check
-        
+
         RotMatz = rotz(pi); % 180° rot matrix
         R_FP5 = R_FPs56789*RotMatz(1:3,1:3);  % turn check
         R_FP6 = R_FPs56789*RotMatz(1:3,1:3);  % turn check
@@ -186,6 +186,10 @@ switch labFlag
         R_FP2 = R_FP*RotMat(1:3,1:3);
         R_FP3 = R_FP*RotMat(1:3,1:3);
         R_FP4 = R_FP*RotMat(1:3,1:3);
+    
+    otherwise
+        warning('Unknown labFlag: %s in c3d2OpenSim. Skript paused!', labFlag);
+        pause()
 end
 
 %% Export markers
@@ -233,7 +237,7 @@ end
 
 % Make sure facing direction is always in the same dircetion for all trials.
 % For this we use the vector from the SCAR to the midASIS as indicator.
-% Seestart file for specifications of "pelvisMarker4nonUniformScaling" (= pelvisMarker): 
+% Seestart file for specifications of "pelvisMarker4nonUniformScaling" (= pelvisMarker):
 
 try
     if length(pelvisMarker) == 6

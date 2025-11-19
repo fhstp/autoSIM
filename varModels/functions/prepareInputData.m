@@ -65,7 +65,8 @@ files.enf = tmp_enf(contains(tmp_enf, commonFileNames));
 % btk/ezc3d toolbox will raise an error with a dialog box preventing the
 % workflow to continue.
 if ~isfile(staticC3d)
-    error(['Warning: The specified static trial <', staticC3d,'> does not exist in wd <', workingDirectory,'>!']);
+    error(['WARNING: No *.c3d files found in current workingDirectory.' newline ...
+       'Check folder and/or conditions label in start.m!' newline]);
 end
 
 % Write *.trc and *.mot files in working directory for static.
@@ -275,7 +276,7 @@ for k = 1 : length(paths.c3d)
 
                 % Get eventes based on lab data
                 switch labFlag
-                    case {'OSS', 'OSSnoArms', 'FHSTP-BIZ', 'FHSTP', 'FHSTPnoArms', 'FHSTP-pyCGM', 'FHCWnoArms', 'FHCW', 'OSS-pyCGM'}
+                    case {'OSS', 'OSSnoArms', 'FHSTP-BIZ', 'FHSTP', 'FHSTPnoArms', 'FHSTP-pyCGM', 'FHCWnoArms', 'FHCW', 'OSS-pyCGM', 'FHSTP_pyCGM2_5', 'FHSTP_pyCGM2_5noArms'}
 
                         if useC3Devents
                             [InputData, node] = getEventsOSS(mot_data, mot_labels, condition, FPs, k, i, trialCnt, stepCnt, paths, events, delta, InputData);
@@ -296,6 +297,10 @@ for k = 1 : length(paths.c3d)
                         else
                             [InputData, node] = getFirstAndLastFrame(mot_data, mot_labels, condition, FPs, k, i, trialCnt, stepCnt, paths, events, delta, InputData);
                         end
+                    
+                    otherwise
+                        warning('Unknown labFlag: %s in prepareInputData. Skript paused!', labFlag);
+                        pause()
                 end
 
                 % Get BW from *.mp file or c3d file

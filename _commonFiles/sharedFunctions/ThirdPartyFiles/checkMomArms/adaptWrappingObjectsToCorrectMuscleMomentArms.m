@@ -74,7 +74,7 @@ while(hasDiscontinuities)
     end
 
     % Check which model is used
-    if contains(origModelFilename, {'lernergopal', 'rajagopal'}, 'IgnoreCase', true)
+    if contains(origModelFilename, {'lernergopal', 'rajagopal', 'LaiUhlrich'}, 'IgnoreCase', true)
     % Get Coordinate indices.
     hip_flexIndexL = model.getCoordinateSet().getIndex('hip_flexion_l');
     hip_flexCoordL = model.updCoordinateSet().get(hip_flexIndexL);
