@@ -358,7 +358,7 @@ for i_wd = i_wd : length(workingDirectories)
                             % Wait until ...
             				if useCPUThreshold
             					disp(strcat('-> Matlab paused! When CPU-load drops below the threshold of', {' '}, string(thresholdCpuLoad) ,{'% '},'the next batch of files will kick off ...'));
-            					CpuLoadBasedPausing_WIN11(thresholdCpuLoad, 60);
+            					CpuLoadBasedPausing_WIN11(thresholdCpuLoad, 40);
 
                                 % Set batch cnt back to zero.
                                 batchCount = 0;

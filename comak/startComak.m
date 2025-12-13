@@ -338,9 +338,9 @@ for j = 1 : length(rootDirs)
 
     %%----- CPU Load Threshold ------------------------------------------------
     % Define a threshold the CPU-load has to fall below (median over 1 minutes), before the next batch of files are forwarded to the cmd window.
-    % In case this is set to False the workflow will use the amount of open cmd windows to control CPU load. Here the above threshold <maxCmd> will be used as cut-off.
-    thresholdCpuLoad = 70;      % default ~ 40% for Laptop, ~70% for 64-core Server
-    useCPUThreshold = false;    % default = false; true or false
+    % In case this is set to false the workflow will use the amount of open cmd windows to control CPU load. Here the above threshold <maxCmd> will be used as cut-off.
+    thresholdCpuLoad = 60;      % default ~ 40% for Laptop, ~60% for 64-core Server
+    useCPUThreshold = true;    % default = true; true or false
 
     % NOTE: it seems that the function <CpuLoadBasedPausing> & <CpuLoadBasedPausing_WIN11> does not always work properly for WIN11 and
     % newer Intelchips (intel core Ultra 7). Therefore the the appraoch using the amount of open cmd windows is recommended.
