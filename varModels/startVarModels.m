@@ -249,10 +249,14 @@ for j = 1 : length(rootDirs)
 
     %%----- Compute joint centers for static *.trc file? ----------------------
     % If the original *.c3d file does not contain any joint centers these
-    % can be computed here. Thsi is also helpfull in case one needs to
+    % can be computed here. This is also helpfull in case one needs to
     % standardize the joint centers across large datasets. 
     compute_joint_centers_for_static_trc = false;    % default = false, true or false
-    hjc_method = "Hara";                            % Options: "Hara", "Harrington_single" 
+    hjc_method = "Hara";                             % Options: "Hara", "Harrington_single"
+    
+    % NOTE: joint centers are only appended to the trc file - in case the c3d
+    % files have already joint centers, this might lead to an error.
+    % Replacing existing joint centers is not implemented yet. 
 
     %%----- Create MOT- and TRC-Files -----------------------------------------
     % Do you want to create *.trc and *.mot files automatically using the built-in code? If so, set to true. Note that
