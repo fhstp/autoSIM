@@ -42,11 +42,11 @@ switch Model2Use
                 usedModel  = 'Lernagopal_41_OUF';
                 scaleTemplate = 'FHCWnoArms_Scaling_LernerGopal.xml';
 
-            case {'OSSnoArms', 'FHSTPnoArms'}
-                markerSetPath = 'OSS_FHSTPnoarms\OSSnoArms_Cleveland_MarkerSet_LernerGopal.xml';
-                path2ScaleFile = char(fullfile(path2GenericModels,'OSS_FHSTPnoArms\'));
-                usedModel  = 'Lernagopal_41_OUF';
-                scaleTemplate = 'OSSnoArms_Scaling_LernerGopal.xml';
+            case {'OSS'}
+                markerSetPath = 'OSS_FHSTP\OSS_Cleveland_MarkerSet_LernerGopal.xml';
+                path2ScaleFile = char(fullfile(path2GenericModels,'OSS_FHSTP\'));
+                usedModel  = 'LernagopalLaiUhlrich2025';
+                scaleTemplate = 'OSS_Scaling_LernerGopal.xml';
 
             case 'FF'
                 markerSetPath = 'FrankFurt\FF_MarkerSet_Lernagopal.xml';
@@ -527,6 +527,9 @@ switch scaleMuscleStrength
         path2scaledModelwithStrength = strcat(path2scaledModel(1:end-5),'_MslScaled.osim');
         strengthScaler(ScaleF, apiPath, path2scaledModel, path2scaledModelwithStrength);
         path2scaledModel = path2scaledModelwithStrength;
+    
+    otherwise
+        error(['Unknown scaleMuscleStrength option: ', scaleMuscleStrength]);
 end
 
 %% Clean saved models

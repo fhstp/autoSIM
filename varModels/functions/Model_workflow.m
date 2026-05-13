@@ -244,9 +244,15 @@ if tasks.SO
         mkdir(path.resultsOpenSimSO);
     end
 
-    % Adjust COM position in actuator file
-    COM = getCOMbody(path.scaledModel, 'pelvis');
-    changeXML(path.forceSetFile,'point',[num2str(COM(1)), ' ',num2str(COM(2)), ' ', num2str(COM(3))],3);
+    % Check if reserve actuator file exists - if not set to empty.
+    if ~isfile(path.forceSetFile)
+        path.forceSetFile = '';
+        warning('No reserve_actuators.xml file found. Static optimization will run without additional reserve actuators.');
+    else
+        % Adjust COM position in actuator file
+        COM = getCOMbody(path.scaledModel, 'pelvis');
+        changeXML(path.forceSetFile, 'point', [num2str(COM(1)), ' ', num2str(COM(2)), ' ', num2str(COM(3))], 3);
+    end
 
     % Replace header
     fid  = fopen(xmlFile,'r');

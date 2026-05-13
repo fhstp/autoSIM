@@ -209,7 +209,7 @@ for j = 1 : length(rootDirs)
     varNameKneeAngle_c3d.L = 'LKneeAngles';             % default = 'LKneeAngles'; this depends on how the variable is defined in your *.c3d files.
     varNameKneeAngle_c3d.posFront = 2;                  % default = 2; You can specify the position (column) of the frontal plane data in your *.c3d files.
     varNameKneeAngle_c3d.posTrans = 3;                  % default = 3; You can specify the position (column) of the transverse plane data in your *.c3d files (later needed for TT).
-    useStatic4FrontAlignmentAsFallback = false;          % default = false; true or false
+    useStatic4FrontAlignmentAsFallback = false;         % default = false; true or false
     tf_angle_fromSource = 'false';                      % default = 'false'; 'false', 'fromStatic', 'fromExtDataFile', 'manual'
     tf_angle_r = 0;                                     % default = 0
     tf_angle_l = 0;                                     % default = 0
@@ -306,7 +306,7 @@ for j = 1 : length(rootDirs)
 
     %%----- Set Lab  ----------------------------------------------------------
     % Define from which lab the data come from
-    labFlag = 'OSSnoArms'; % 'OSS', 'OSSnoArms', 'FHSTP-BIZ', 'FHSTP', FHSTPnoArms, 'ISW', 'LKHG_Cleve', 'FF', 'FHSTP-pyCGM', 'FHCWnoArms', 'OSS-pyCGM', 'FHSTP_pyCGM2_5', FHSTP_pyCGM2_5noArms, UMC_HBMnoArms
+    labFlag = 'OSS'; % 'OSS', 'OSSnoArms', 'FHSTP-BIZ', 'FHSTP', FHSTPnoArms, 'ISW', 'LKHG_Cleve', 'FF', 'FHSTP-pyCGM', 'FHCWnoArms', 'OSS-pyCGM', 'FHSTP_pyCGM2_5', FHSTP_pyCGM2_5noArms, UMC_HBMnoArms
 
     %%----- Set max. N of cmd windows -----------------------------------------
     % Define number of allowed simultaneously running cmd windows.
@@ -325,7 +325,7 @@ for j = 1 : length(rootDirs)
     % Disable this for debugging when developing the code. Enable for running
     % big file batches so that errors are caught and Matlab won`t stop on an
     % error.
-    catchErrors = false; % default = true
+    catchErrors = true; % default = true
 
     %%----- Settings for use of Parrallell Computing --------------------------
     maxNumWorkers = 7; % this depends on your machine and task ... 7 seemed fine for my 64-core sever (for a standard scale + TF only and with momentarm checks).
@@ -698,9 +698,6 @@ for j = 1 : length(rootDirs)
     else
         batchSize = 300; % default = 300; this highly depends on your use case. E.g.: we processed 6.500 directorires, had 128GB RAM a batchsize of 300 seemed ok to prevent running out of RAM due to memory leak.
         split = ceil(Nmax/batchSize);
-
-        %split = 10; % default = 10; this highly depends on your use case. E.g.: we processed 6.500 directorires, had 128GB RAM and needed 5 splits to prevent running out of RAM due to memory leak.
-        %batchSize = ceil(Nmax / split);  % Use ceil to ensure no directories are missed.
     end
 
     % Loop over each batch - since there is often a memory leak, this might help

@@ -150,8 +150,8 @@ for j = 1 : length(rootDirs)
             endIdx = min(batchIdx * batchSize, Nmax);  % Ensure not to exceed Nmax
 
             % Run the parallel loop for the current batch
-            for i_parfor = startIdx:endIdx; warning("parfor not activated!"); %#> for development only
-                %parfor (i_parfor = startIdx:endIdx, M)
+            %for i_parfor = startIdx:endIdx; warning("parfor not activated!"); %#> for development only
+            parfor (i_parfor = startIdx:endIdx, M)
                 loops4PostProcessingVarModels(rootDirectory, workingDirectories, conditions, path2setupFiles, cPrefix, timeNormFlag, catchErrors, trialType, Model2Use, i_parfor)
             end
 
