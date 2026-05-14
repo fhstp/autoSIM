@@ -234,7 +234,7 @@ f = btkGetForcePlatforms(acq);
 metaData = btkGetMetaData(acq);
 cam_rate = metaData.children.TRIAL.children.CAMERA_RATE.info.values(1,1);
 startfield = metaData.children.TRIAL.children.ACTUAL_START_FIELD.info.values(1,1);
-delta = 1/cam_rate * startfield;
+delta = 1/cam_rate * (startfield-1); % changed by bhorsak 14.05.2026, -1 => Convert the first C3D frame number into elapsed time, accounting for the fact that frame numbering starts at 1.
 
 % Get all Marker data.
 markers_out = btkGetMarkers(acq);
@@ -342,7 +342,8 @@ MLabels = tempMLabels;
 % Create additional info.
 [nvF, ~] = size(Markers);           % get number of frames
 vFrms = (1:nvF)';                   % frame index
-vTime = (1/VideoFrameRate*(vFrms)) + delta; % Time vector starting with delta from c3d startingfield
+%vTime = (1/VideoFrameRate*(vFrms)) + delta; % Time vector starting with delta from c3d startingfield
+vTime = ((0:nvF-1)' ./ VideoFrameRate) + delta; % changed by bhorsak 14.05.2026
 
 writeMarkersToTRC(TRC_out, Markers, MLabels, VideoFrameRate, vFrms, vTime, 'm');  % write to TRC file
 
@@ -455,8 +456,10 @@ for i=1:nFP
 end
 
 % Export the GRF file.
-t_vect = ((1:nFR)./AnalogFrameRate) + delta;
-generateMotFile([t_vect' FP_DatOut], ['time' labels],GRF_out);
+%t_vect = ((1:nFR)./AnalogFrameRate) + delta;
+t_vect = ((0:nFR-1)' ./ AnalogFrameRate) + delta; % changed by bhorsak 14.05.2026
+%generateMotFile([t_vect' FP_DatOut], ['time' labels],GRF_out); % changed by bhorsak 14.05.2026
+generateMotFile([t_vect FP_DatOut], ['time' labels],GRF_out);
 
 % Now close acq.
 btkCloseAcquisition(acq);
