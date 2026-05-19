@@ -4,7 +4,8 @@
  |  |  +--- Minor bugs, spelling mistakes, etc.
  |  +----- Minor features, major bug fixes, etc.
  +------- Major version, UX changes, file format changes, etc.
- 
+
+
 Last line is current version. 
 V3.5.1
 V3.6.1
